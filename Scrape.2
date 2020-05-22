@@ -1,0 +1,40 @@
+import requests
+import urllib3.request
+import time
+from bs4 import BeautifulSoup
+
+url = 'http://eresources.hcourt.gov.au/browse?col=0.html'
+
+response = requests.get(url)
+
+#print ("%s" %(response)) 
+soup = BeautifulSoup(response.text, "html.parser")
+
+hello = soup.div
+#print(hello.get_attribute_list('header'))
+#del hello['']
+
+line_count = 0
+for one_div_tag in soup.findAll("div", class_='well'):
+	print one_div_tag
+	line_count +=1
+
+
+
+
+
+#print soup.get_text()
+#print (soup.get_text('div'))
+#soup.findAll('a')
+
+#print one_a_tag
+
+#print (soup.get_text())
+#soup.div ['class'] = "well"
+#print soup.div.get_text
+#a_tag = soup.h5
+#print a_tag
+#print (soup.prettify())
+
+#soup.findAll("div", class_='well')
+#print soup.div.get_text()
